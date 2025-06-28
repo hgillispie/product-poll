@@ -183,12 +183,12 @@ const Submit: NextPage = () => {
                     variant="filled"
                     size="lg"
                   >
-                    <option value="feature">🚀 New Feature</option>
-                    <option value="improvement">✨ Improvement</option>
-                    <option value="bug">🐛 Bug Report</option>
-                    <option value="integration">🔗 Integration</option>
-                    <option value="performance">⚡ Performance</option>
-                    <option value="documentation">📚 Documentation</option>
+                    <option value="feature">New Feature</option>
+                    <option value="improvement">Improvement</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="integration">Integration</option>
+                    <option value="performance">Performance</option>
+                    <option value="documentation">Documentation</option>
                   </Select>
                 </FormControl>
 
