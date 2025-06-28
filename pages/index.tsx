@@ -152,7 +152,7 @@ const Home: NextPage = () => {
               <Heading size="lg" mb={4} color="gray.900">
                 How It Works
               </Heading>
-              <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
+              <Text size="lg" color="gray.600" maxW="2xl" mx="auto">
                 Join the Builder.io community in shaping our platform
               </Text>
             </Box>
