@@ -403,6 +403,10 @@ const RoadmapColumn = ({
 };
 
 const Roadmap: NextPage = () => {
+  const backlogItems = roadmapItems.filter((item) => item.status === "BACKLOG");
+  const underReviewItems = roadmapItems.filter(
+    (item) => item.status === "UNDER_REVIEW",
+  );
   const plannedItems = roadmapItems.filter((item) => item.status === "PLANNED");
   const inProgressItems = roadmapItems.filter(
     (item) => item.status === "IN_PROGRESS",
