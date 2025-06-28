@@ -6,19 +6,68 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model Poll {
-  id        Int      @id @default(autoincrement())
-  title     String
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  name      String
+  avatar    String?
   createdAt DateTime @default(now())
-  choices   String
+
+  ideas     Idea[]
+  votes     Vote[]
+  comments  Comment[]
+}
+
+model Idea {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  status      Status   @default(SUBMITTED)
+  tags        String[] @default([])
+  authorId    String   @db.ObjectId
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author      User      @relation(fields: [authorId], references: [id])
+  votes       Vote[]
+  comments    Comment[]
+
+  @@map("ideas")
 }
 
 model Vote {
-  id        Int      @id @default(autoincrement())
-  pollId    Int
-  choice    String
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  userId  String @db.ObjectId
+  ideaId  String @db.ObjectId
+
+  user    User   @relation(fields: [userId], references: [id])
+  idea    Idea   @relation(fields: [ideaId], references: [id])
+
+  @@unique([userId, ideaId])
+  @@map("votes")
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  userId    String   @db.ObjectId
+  ideaId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+  idea      Idea     @relation(fields: [ideaId], references: [id])
+
+  @@map("comments")
+}
+
+enum Status {
+  SUBMITTED
+  PLANNED
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
 }
