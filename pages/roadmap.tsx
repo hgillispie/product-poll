@@ -436,35 +436,51 @@ const Roadmap: NextPage = () => {
           <Card>
             <CardBody>
               <Grid
-                templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-                gap={6}
+                templateColumns="repeat(auto-fit, minmax(150px, 1fr))"
+                gap={4}
               >
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="blue.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="gray.500">
+                    {backlogItems.length}
+                  </Text>
+                  <Text color="gray.600" fontSize="sm">
+                    In Backlog
+                  </Text>
+                </Box>
+                <Box textAlign="center">
+                  <Text fontSize="2xl" fontWeight="bold" color="purple">
+                    {underReviewItems.length}
+                  </Text>
+                  <Text color="gray.600" fontSize="sm">
+                    Under Review
+                  </Text>
+                </Box>
+                <Box textAlign="center">
+                  <Text fontSize="2xl" fontWeight="bold" color="lightBlue">
                     {plannedItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    Features Planned
+                    Planned
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="orange.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="orange">
                     {inProgressItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    In Development
+                    In Progress
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="green.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="green">
                     {completedItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    Recently Shipped
+                    Completed
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="brand.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="purple">
                     {roadmapItems.reduce((sum, item) => sum + item.votes, 0)}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
