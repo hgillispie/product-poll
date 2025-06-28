@@ -87,13 +87,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="brand.100" p={3} borderRadius="lg">
-                      <Icon as={StarIcon} color="brand.500" boxSize={6} />
+                      <Icon as={StarIcon} color="purple" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Vote on Ideas
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Help prioritize features by voting on ideas that matter
                         most to you and your team.
                       </Text>
