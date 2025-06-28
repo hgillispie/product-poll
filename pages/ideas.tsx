@@ -261,7 +261,14 @@ const Ideas: NextPage = () => {
                         icon={<ChevronUpIcon />}
                         size="sm"
                         variant={idea.hasVoted ? "solid" : "outline"}
-                        colorScheme={idea.hasVoted ? "brand" : "gray"}
+                        bg={idea.hasVoted ? "purple" : "transparent"}
+                        color={idea.hasVoted ? "white" : "gray.600"}
+                        borderColor={idea.hasVoted ? "purple" : "gray.300"}
+                        _hover={{
+                          bg: idea.hasVoted ? "brand.600" : "purple",
+                          color: "white",
+                          borderColor: "purple",
+                        }}
                         onClick={() => handleVote(idea.id)}
                       />
                       <Text fontSize="sm" fontWeight="bold" color="gray.600">
