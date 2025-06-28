@@ -18,7 +18,7 @@ interface AuthContextType {
 const mockUsers: User[] = [
   {
     id: "1",
-    name: "Alex Johnson",
+    name: "Hunter Gillispie",
     email: "alex@builder.io",
     avatar: "https://bit.ly/sage-adebayo",
   },
