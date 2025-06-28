@@ -103,18 +103,60 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
+        fontFamily: "Poppins",
         fontWeight: "700",
         color: "gray.900",
       },
       sizes: {
+        "2xl": {
+          fontSize: ["35px", "55px"], // Mobile H1 / Desktop H1 from design tokens
+          lineHeight: ["45px", "66px"],
+          letterSpacing: ["-1.05px", "-1.65px"],
+        },
         xl: {
-          fontSize: ["2.5rem", "3rem", "3.5rem"],
+          fontSize: ["28px", "40px"], // Mobile H2 / Desktop H2 from design tokens
+          lineHeight: ["36px", "52px"],
+          letterSpacing: ["-0.84px", "-1.2px"],
+          fontWeight: "500",
         },
         lg: {
-          fontSize: ["1.75rem", "2rem", "2.25rem"],
+          fontSize: "32px", // H3 from design tokens
+          lineHeight: "44px",
+          letterSpacing: "-0.96px",
+          fontWeight: "500",
         },
         md: {
-          fontSize: ["1.25rem", "1.375rem", "1.5rem"],
+          fontSize: "24px", // H4 from design tokens
+          lineHeight: "31.2px",
+          letterSpacing: "-0.24px",
+          fontWeight: "500",
+        },
+      },
+    },
+    Text: {
+      baseStyle: {
+        fontFamily: "Poppins",
+      },
+      sizes: {
+        lg: {
+          fontSize: "16px", // Paragraph from design tokens
+          lineHeight: "27px",
+          fontWeight: "400",
+        },
+        md: {
+          fontSize: "16px", // Paragraph from design tokens
+          lineHeight: "27px",
+          fontWeight: "400",
+        },
+        sm: {
+          fontSize: "14px", // Small paragraph from design tokens
+          lineHeight: "19.6px",
+          fontWeight: "400",
+        },
+        xs: {
+          fontSize: "14px", // Mobile paragraph from design tokens
+          lineHeight: "24px",
+          fontWeight: "400",
         },
       },
     },
