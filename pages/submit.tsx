@@ -143,7 +143,7 @@ const Submit: NextPage = () => {
           {/* Page Header */}
           <Box textAlign="center">
             <Heading size="xl" mb={2} color="gray.900">
-              📝 Submit Your Idea
+              Submit Your Idea
             </Heading>
             <Text color="gray.600" fontSize="lg">
               Help us improve Builder.io by sharing your feedback and feature
