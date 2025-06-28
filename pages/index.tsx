@@ -193,7 +193,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -210,7 +210,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       Community Votes
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       The community votes on ideas to help us prioritize
                       development
                     </Text>
@@ -221,7 +221,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -238,7 +238,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       We Build It
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       Top-voted features get built and released to improve
                       Builder.io
                     </Text>
