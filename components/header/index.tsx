@@ -85,7 +85,7 @@ const Header = () => {
                   <Avatar
                     size="sm"
                     name={user.name}
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                   />
                   <Text fontSize="sm" color="gray.700">
