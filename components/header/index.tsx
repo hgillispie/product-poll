@@ -93,10 +93,10 @@ const Header = () => {
                 </HStack>
               </MenuButton>
               <MenuList>
-                <MenuItem color="gray.600">👤 Profile</MenuItem>
-                <MenuItem color="gray.600">⚙️ Settings</MenuItem>
+                <MenuItem color="gray.600">Profile</MenuItem>
+                <MenuItem color="gray.600">Settings</MenuItem>
                 <MenuItem color="gray.600" onClick={logout}>
-                  🚪 Sign out
+                  Sign out
                 </MenuItem>
               </MenuList>
             </Menu>
