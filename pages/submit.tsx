@@ -110,7 +110,7 @@ const Submit: NextPage = () => {
       const result = await response.json();
 
       toast({
-        title: "Idea submitted successfully! 🎉",
+        title: "Idea submitted successfully!",
         description:
           "Thank you for your feedback. The team will review it soon.",
         status: "success",
