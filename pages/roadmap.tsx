@@ -492,21 +492,38 @@ const Roadmap: NextPage = () => {
           </Card>
 
           {/* Kanban Board */}
-          <Grid
-            templateColumns={["1fr", "1fr", "repeat(3, 1fr)"]}
-            gap={6}
-            alignItems="start"
-          >
-            <GridItem>
-              <RoadmapColumn status="PLANNED" items={plannedItems} />
-            </GridItem>
-            <GridItem>
-              <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
-            </GridItem>
-            <GridItem>
-              <RoadmapColumn status="COMPLETED" items={completedItems} />
-            </GridItem>
-          </Grid>
+          <Box>
+            <Text color="gray.600" fontSize="sm" mb={4}>
+              Scroll horizontally to see all stages →
+            </Text>
+            <Box overflowX="auto" pb={4}>
+              <HStack
+                spacing={6}
+                alignItems="start"
+                minW="max-content"
+                w="max-content"
+              >
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="BACKLOG" items={backlogItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn
+                    status="UNDER_REVIEW"
+                    items={underReviewItems}
+                  />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="PLANNED" items={plannedItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="COMPLETED" items={completedItems} />
+                </Box>
+              </HStack>
+            </Box>
+          </Box>
 
           {/* Footer Note */}
           <Card bg="blue.50" borderColor="blue.200">
