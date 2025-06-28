@@ -67,6 +67,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["seo", "optimization", "analytics"],
     votes: 67,
     comments: 12,
+    hasVoted: true,
   },
   {
     id: "3",
@@ -77,6 +78,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["voice", "accessibility", "editor"],
     votes: 23,
     comments: 4,
+    hasVoted: false,
   },
   {
     id: "4",
@@ -87,6 +89,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["security", "monitoring", "compliance"],
     votes: 89,
     comments: 16,
+    hasVoted: false,
   },
 
   // UNDER_REVIEW
