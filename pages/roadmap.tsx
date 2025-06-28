@@ -1,6 +1,7 @@
 import {
   Badge,
   Box,
+  Button,
   Card,
   CardBody,
   Container,
@@ -8,14 +9,27 @@ import {
   GridItem,
   Heading,
   HStack,
+  IconButton,
+  Input,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Progress,
   Stack,
   Text,
+  Textarea,
   VStack,
+  useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Header from "@/header";
 import { ChatIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { useState, useEffect } from "react";
 
 interface RoadmapItem {
   id: string;
@@ -27,10 +41,11 @@ interface RoadmapItem {
   comments: number;
   progress?: number; // Only for IN_PROGRESS items
   quarter?: string; // Target quarter for completion
+  hasVoted?: boolean; // Whether current user has voted
 }
 
 // Mock roadmap data
-const roadmapItems: RoadmapItem[] = [
+const initialRoadmapItems: RoadmapItem[] = [
   // BACKLOG
   {
     id: "1",
@@ -41,6 +56,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["ai", "content", "analytics"],
     votes: 45,
     comments: 8,
+    hasVoted: false,
   },
   {
     id: "2",
@@ -51,6 +67,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["seo", "optimization", "analytics"],
     votes: 67,
     comments: 12,
+    hasVoted: true,
   },
   {
     id: "3",
@@ -61,6 +78,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["voice", "accessibility", "editor"],
     votes: 23,
     comments: 4,
+    hasVoted: false,
   },
   {
     id: "4",
@@ -71,6 +89,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["security", "monitoring", "compliance"],
     votes: 89,
     comments: 16,
+    hasVoted: false,
   },
 
   // UNDER_REVIEW
@@ -83,6 +102,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["api", "graphql", "realtime"],
     votes: 134,
     comments: 28,
+    hasVoted: true,
   },
   {
     id: "6",
@@ -93,6 +113,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["multi-tenant", "branding", "cms"],
     votes: 156,
     comments: 34,
+    hasVoted: false,
   },
   {
     id: "7",
@@ -103,6 +124,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["components", "library", "editor"],
     votes: 98,
     comments: 21,
+    hasVoted: true,
   },
 
   // PLANNED
@@ -116,6 +138,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 156,
     comments: 34,
     quarter: "Q2 2024",
+    hasVoted: false,
   },
   {
     id: "9",
@@ -127,6 +150,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 89,
     comments: 22,
     quarter: "Q3 2024",
+    hasVoted: true,
   },
   {
     id: "10",
@@ -138,6 +162,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 67,
     comments: 15,
     quarter: "Q2 2024",
+    hasVoted: false,
   },
 
   // IN_PROGRESS
@@ -152,6 +177,7 @@ const roadmapItems: RoadmapItem[] = [
     comments: 45,
     progress: 75,
     quarter: "Q1 2024",
+    hasVoted: true,
   },
   {
     id: "12",
@@ -164,6 +190,7 @@ const roadmapItems: RoadmapItem[] = [
     comments: 38,
     progress: 40,
     quarter: "Q1 2024",
+    hasVoted: false,
   },
   {
     id: "13",
@@ -176,6 +203,7 @@ const roadmapItems: RoadmapItem[] = [
     comments: 28,
     progress: 60,
     quarter: "Q1 2024",
+    hasVoted: true,
   },
   {
     id: "14",
@@ -188,6 +216,7 @@ const roadmapItems: RoadmapItem[] = [
     comments: 32,
     progress: 25,
     quarter: "Q2 2024",
+    hasVoted: false,
   },
 
   // COMPLETED
@@ -201,6 +230,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 312,
     comments: 67,
     quarter: "Q4 2023",
+    hasVoted: true,
   },
   {
     id: "16",
@@ -212,6 +242,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 89,
     comments: 19,
     quarter: "Q4 2023",
+    hasVoted: false,
   },
   {
     id: "17",
@@ -223,6 +254,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 178,
     comments: 41,
     quarter: "Q4 2023",
+    hasVoted: false,
   },
   {
     id: "18",
@@ -234,6 +266,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 145,
     comments: 29,
     quarter: "Q4 2023",
+    hasVoted: true,
   },
   {
     id: "19",
@@ -245,6 +278,7 @@ const roadmapItems: RoadmapItem[] = [
     votes: 123,
     comments: 24,
     quarter: "Q3 2023",
+    hasVoted: false,
   },
 ];
 
@@ -279,9 +313,13 @@ const statusConfig = {
 const RoadmapColumn = ({
   status,
   items,
+  onVote,
+  onComment,
 }: {
   status: keyof typeof statusConfig;
   items: RoadmapItem[];
+  onVote: (itemId: string) => void;
+  onComment: (itemId: string) => void;
 }) => {
   const config = statusConfig[status];
 
@@ -375,11 +413,34 @@ const RoadmapColumn = ({
                   >
                     <HStack spacing={3}>
                       <HStack spacing={1}>
-                        <ChevronUpIcon />
+                        <IconButton
+                          aria-label="Vote on roadmap item"
+                          icon={<ChevronUpIcon />}
+                          size="xs"
+                          variant={item.hasVoted ? "solid" : "ghost"}
+                          bg={item.hasVoted ? "purple" : "transparent"}
+                          color={item.hasVoted ? "white" : "gray.500"}
+                          _hover={{
+                            bg: item.hasVoted ? "brand.600" : "purple",
+                            color: "white",
+                          }}
+                          onClick={() => onVote(item.id)}
+                        />
                         <Text>{item.votes}</Text>
                       </HStack>
                       <HStack spacing={1}>
-                        <ChatIcon />
+                        <IconButton
+                          aria-label="View comments"
+                          icon={<ChatIcon />}
+                          size="xs"
+                          variant="ghost"
+                          color="gray.500"
+                          _hover={{
+                            bg: "gray.100",
+                            color: "gray.600",
+                          }}
+                          onClick={() => onComment(item.id)}
+                        />
                         <Text>{item.comments}</Text>
                       </HStack>
                     </HStack>
@@ -404,6 +465,14 @@ const RoadmapColumn = ({
 };
 
 const Roadmap: NextPage = () => {
+  const [roadmapItems, setRoadmapItems] =
+    useState<RoadmapItem[]>(initialRoadmapItems);
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [newComment, setNewComment] = useState("");
+  const [isSubmittingComment, setIsSubmittingComment] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
   const backlogItems = roadmapItems.filter((item) => item.status === "BACKLOG");
   const underReviewItems = roadmapItems.filter(
     (item) => item.status === "UNDER_REVIEW",
@@ -415,6 +484,121 @@ const Roadmap: NextPage = () => {
   const completedItems = roadmapItems.filter(
     (item) => item.status === "COMPLETED",
   );
+
+  const handleVote = async (itemId: string) => {
+    try {
+      const response = await fetch("/api/votes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ideaId: itemId,
+          userId: "user1", // Mock user ID
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to vote");
+      }
+
+      const result = await response.json();
+
+      // Update local state
+      setRoadmapItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === itemId
+            ? {
+                ...item,
+                votes: item.hasVoted ? item.votes - 1 : item.votes + 1,
+                hasVoted: !item.hasVoted,
+              }
+            : item,
+        ),
+      );
+
+      toast({
+        title: "Vote registered",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+        variant: "solid",
+        containerStyle: {
+          backgroundColor: "#48BB78",
+          color: "white",
+        },
+      });
+    } catch (error) {
+      console.error("Error voting:", error);
+      toast({
+        title: "Failed to vote",
+        description: "Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+
+  const handleComment = (itemId: string) => {
+    setSelectedItemId(itemId);
+    onOpen();
+  };
+
+  const handleSubmitComment = async () => {
+    if (!selectedItemId || !newComment.trim()) return;
+
+    setIsSubmittingComment(true);
+    try {
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: newComment.trim(),
+          ideaId: selectedItemId,
+          userId: "user1", // Mock user ID
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add comment");
+      }
+
+      // Update comment count in local state
+      setRoadmapItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === selectedItemId
+            ? { ...item, comments: item.comments + 1 }
+            : item,
+        ),
+      );
+
+      toast({
+        title: "Comment added!",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+
+      setNewComment("");
+      onClose();
+    } catch (error) {
+      console.error("Error adding comment:", error);
+      toast({
+        title: "Failed to add comment",
+        description: "Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsSubmittingComment(false);
+    }
+  };
+
+  const selectedItem = roadmapItems.find((item) => item.id === selectedItemId);
 
   return (
     <Box minH="100vh" bg="gray.50">
@@ -505,22 +689,44 @@ const Roadmap: NextPage = () => {
                 w="max-content"
               >
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="BACKLOG" items={backlogItems} />
+                  <RoadmapColumn
+                    status="BACKLOG"
+                    items={backlogItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
                   <RoadmapColumn
                     status="UNDER_REVIEW"
                     items={underReviewItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
                   />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="PLANNED" items={plannedItems} />
+                  <RoadmapColumn
+                    status="PLANNED"
+                    items={plannedItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
+                  <RoadmapColumn
+                    status="IN_PROGRESS"
+                    items={inProgressItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="COMPLETED" items={completedItems} />
+                  <RoadmapColumn
+                    status="COMPLETED"
+                    items={completedItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
               </HStack>
             </Box>
@@ -537,6 +743,57 @@ const Roadmap: NextPage = () => {
           </Card>
         </VStack>
       </Container>
+
+      {/* Comment Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="lg">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            Add Comment
+            {selectedItem && (
+              <Text fontSize="sm" fontWeight="normal" color="gray.600" mt={1}>
+                {selectedItem.title}
+              </Text>
+            )}
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <VStack spacing={4} align="stretch">
+              <Text color="gray.600" fontSize="sm">
+                Share your thoughts, feedback, or questions about this roadmap
+                item.
+              </Text>
+              <Textarea
+                placeholder="Write your comment here..."
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                rows={4}
+                resize="vertical"
+                maxLength={500}
+              />
+              <Text fontSize="xs" color="gray.500" textAlign="right">
+                {newComment.length}/500 characters
+              </Text>
+            </VStack>
+          </ModalBody>
+          <ModalFooter>
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button
+              bg="purple"
+              color="white"
+              _hover={{ bg: "brand.600" }}
+              onClick={handleSubmitComment}
+              isLoading={isSubmittingComment}
+              loadingText="Adding..."
+              isDisabled={!newComment.trim() || newComment.length > 500}
+            >
+              Add Comment
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
