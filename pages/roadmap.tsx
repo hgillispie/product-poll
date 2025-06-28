@@ -102,6 +102,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["api", "graphql", "realtime"],
     votes: 134,
     comments: 28,
+    hasVoted: true,
   },
   {
     id: "6",
@@ -112,6 +113,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["multi-tenant", "branding", "cms"],
     votes: 156,
     comments: 34,
+    hasVoted: false,
   },
   {
     id: "7",
@@ -122,6 +124,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     tags: ["components", "library", "editor"],
     votes: 98,
     comments: 21,
+    hasVoted: true,
   },
 
   // PLANNED
