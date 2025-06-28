@@ -45,7 +45,7 @@ interface RoadmapItem {
 }
 
 // Mock roadmap data
-const roadmapItems: RoadmapItem[] = [
+const initialRoadmapItems: RoadmapItem[] = [
   // BACKLOG
   {
     id: "1",
@@ -56,6 +56,7 @@ const roadmapItems: RoadmapItem[] = [
     tags: ["ai", "content", "analytics"],
     votes: 45,
     comments: 8,
+    hasVoted: false,
   },
   {
     id: "2",
