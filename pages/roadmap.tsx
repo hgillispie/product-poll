@@ -31,9 +31,83 @@ interface RoadmapItem {
 
 // Mock roadmap data
 const roadmapItems: RoadmapItem[] = [
-  // PLANNED
+  // BACKLOG
   {
     id: "1",
+    title: "AI-Powered Content Suggestions",
+    description:
+      "Intelligent content recommendations based on user behavior and performance analytics.",
+    status: "BACKLOG",
+    tags: ["ai", "content", "analytics"],
+    votes: 45,
+    comments: 8,
+  },
+  {
+    id: "2",
+    title: "Advanced SEO Optimization Tools",
+    description:
+      "Built-in SEO analysis with recommendations for meta tags, structured data, and performance.",
+    status: "BACKLOG",
+    tags: ["seo", "optimization", "analytics"],
+    votes: 67,
+    comments: 12,
+  },
+  {
+    id: "3",
+    title: "Voice Interface for Content Creation",
+    description:
+      "Voice commands for hands-free content editing and navigation through the builder interface.",
+    status: "BACKLOG",
+    tags: ["voice", "accessibility", "editor"],
+    votes: 23,
+    comments: 4,
+  },
+  {
+    id: "4",
+    title: "Advanced Security Dashboard",
+    description:
+      "Comprehensive security monitoring with audit logs, access controls, and threat detection.",
+    status: "BACKLOG",
+    tags: ["security", "monitoring", "compliance"],
+    votes: 89,
+    comments: 16,
+  },
+
+  // UNDER_REVIEW
+  {
+    id: "5",
+    title: "GraphQL API Enhancement",
+    description:
+      "Extended GraphQL API with real-time subscriptions and advanced filtering capabilities.",
+    status: "UNDER_REVIEW",
+    tags: ["api", "graphql", "realtime"],
+    votes: 134,
+    comments: 28,
+  },
+  {
+    id: "6",
+    title: "Multi-Brand Content Management",
+    description:
+      "Support for managing multiple brands with separate themes, assets, and content libraries.",
+    status: "UNDER_REVIEW",
+    tags: ["multi-tenant", "branding", "cms"],
+    votes: 156,
+    comments: 34,
+  },
+  {
+    id: "7",
+    title: "Advanced Component Library",
+    description:
+      "Expanded component library with advanced layout options and interactive elements.",
+    status: "UNDER_REVIEW",
+    tags: ["components", "library", "editor"],
+    votes: 98,
+    comments: 21,
+  },
+
+  // PLANNED
+  {
+    id: "8",
     title: "Advanced A/B Testing Suite",
     description:
       "Comprehensive A/B testing framework with statistical significance tracking and advanced targeting rules.",
@@ -44,7 +118,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q2 2024",
   },
   {
-    id: "2",
+    id: "9",
     title: "Mobile App Content Management",
     description:
       "Native mobile app for content creators to manage and publish content on the go.",
@@ -55,7 +129,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q3 2024",
   },
   {
-    id: "3",
+    id: "10",
     title: "Enhanced Localization Tools",
     description:
       "Better translation workflow with context-aware suggestions and collaboration features.",
