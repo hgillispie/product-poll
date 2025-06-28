@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Image,
   Menu,
   MenuButton,
   MenuItem,
