@@ -738,6 +738,57 @@ const Roadmap: NextPage = () => {
           </Card>
         </VStack>
       </Container>
+
+      {/* Comment Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="lg">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            Add Comment
+            {selectedItem && (
+              <Text fontSize="sm" fontWeight="normal" color="gray.600" mt={1}>
+                {selectedItem.title}
+              </Text>
+            )}
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <VStack spacing={4} align="stretch">
+              <Text color="gray.600" fontSize="sm">
+                Share your thoughts, feedback, or questions about this roadmap
+                item.
+              </Text>
+              <Textarea
+                placeholder="Write your comment here..."
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                rows={4}
+                resize="vertical"
+                maxLength={500}
+              />
+              <Text fontSize="xs" color="gray.500" textAlign="right">
+                {newComment.length}/500 characters
+              </Text>
+            </VStack>
+          </ModalBody>
+          <ModalFooter>
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button
+              bg="purple"
+              color="white"
+              _hover={{ bg: "brand.600" }}
+              onClick={handleSubmitComment}
+              isLoading={isSubmittingComment}
+              loadingText="Adding..."
+              isDisabled={!newComment.trim() || newComment.length > 500}
+            >
+              Add Comment
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
