@@ -67,7 +67,10 @@ const theme = extendTheme({
   components: {
     Button: {
       baseStyle: {
-        fontWeight: "600",
+        fontFamily: "Poppins",
+        fontSize: "16px", // Button typography from design tokens
+        lineHeight: "24px",
+        fontWeight: "500",
         borderRadius: "lg",
       },
       variants: {
