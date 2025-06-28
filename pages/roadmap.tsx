@@ -249,6 +249,16 @@ const roadmapItems: RoadmapItem[] = [
 ];
 
 const statusConfig = {
+  BACKLOG: {
+    title: "Backlog",
+    color: "gray",
+    description: "Ideas under consideration",
+  },
+  UNDER_REVIEW: {
+    title: "Under Review",
+    color: "purple",
+    description: "Ideas being evaluated",
+  },
   PLANNED: {
     title: "Planned",
     color: "blue",
