@@ -353,7 +353,8 @@ const RoadmapColumn = ({
                       <Badge
                         key={tag}
                         variant="subtle"
-                        colorScheme="brand"
+                        bg="brand.100"
+                        color="purple"
                         fontSize="xs"
                       >
                         {tag}
