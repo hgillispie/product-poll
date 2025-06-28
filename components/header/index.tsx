@@ -82,7 +82,12 @@ const Header = () => {
             <Menu>
               <MenuButton>
                 <HStack spacing={2} cursor="pointer">
-                  <Avatar size="sm" src={user.avatar} name={user.name} />
+                  <Avatar
+                    size="sm"
+                    name={user.name}
+                    bg="brand.500"
+                    color="white"
+                  />
                   <Text fontSize="sm" color="gray.700">
                     {user.name}
                   </Text>
