@@ -305,7 +305,7 @@ const Submit: NextPage = () => {
                   loadingText="Submitting..."
                   disabled={loading}
                 >
-                  Submit Idea 🚀
+                  Submit Idea
                 </Button>
               </Stack>
             </CardBody>
