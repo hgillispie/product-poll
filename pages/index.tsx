@@ -34,22 +34,10 @@ const Home: NextPage = () => {
           {/* Hero Section */}
           <VStack spacing={8} textAlign="center" py={8}>
             <Box>
-              <Heading
-                size="2xl"
-                color="gray.900"
-                mb={4}
-                fontWeight="800"
-                lineHeight="shorter"
-              >
+              <Heading size="2xl" color="gray.900" mb={4}>
                 Shape the Future of Builder.io
               </Heading>
-              <Text
-                fontSize="xl"
-                color="gray.600"
-                maxW="3xl"
-                mx="auto"
-                lineHeight="tall"
-              >
+              <Text size="lg" color="gray.600" maxW="3xl" mx="auto">
                 Your voice matters. Share ideas, vote on features, and help us
                 build the visual development platform that empowers your team.
               </Text>
