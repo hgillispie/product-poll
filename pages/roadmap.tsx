@@ -21,7 +21,7 @@ interface RoadmapItem {
   id: string;
   title: string;
   description: string;
-  status: "PLANNED" | "IN_PROGRESS" | "COMPLETED";
+  status: "BACKLOG" | "UNDER_REVIEW" | "PLANNED" | "IN_PROGRESS" | "COMPLETED";
   tags: string[];
   votes: number;
   comments: number;
