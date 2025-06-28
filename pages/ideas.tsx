@@ -177,19 +177,11 @@ const Ideas: NextPage = () => {
       status: "success",
       duration: 2000,
       isClosable: true,
-      position: "top",
-      render: () => (
-        <Box
-          bg="green.500"
-          color="white"
-          p={3}
-          borderRadius="md"
-          fontSize="sm"
-          fontWeight="bold"
-        >
-          Vote registered
-        </Box>
-      ),
+      variant: "solid",
+      containerStyle: {
+        backgroundColor: "#48BB78",
+        color: "white",
+      },
     });
   };
 
