@@ -47,12 +47,16 @@ const Home: NextPage = () => {
               <Link href="/ideas">
                 <Button
                   size="lg"
-                  colorScheme="brand"
+                  bg="purple"
+                  color="white"
                   rightIcon={<ArrowForwardIcon />}
                   px={8}
                   py={6}
-                  fontSize="lg"
-                  fontWeight="600"
+                  _hover={{
+                    bg: "brand.600",
+                    transform: "translateY(-1px)",
+                    boxShadow: "lg",
+                  }}
                 >
                   Browse Ideas
                 </Button>
@@ -61,11 +65,14 @@ const Home: NextPage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  colorScheme="brand"
+                  borderColor="purple"
+                  color="purple"
                   px={8}
                   py={6}
-                  fontSize="lg"
-                  fontWeight="600"
+                  _hover={{
+                    bg: "brand.50",
+                    transform: "translateY(-1px)",
+                  }}
                 >
                   Submit Feedback
                 </Button>
