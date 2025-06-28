@@ -108,13 +108,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="accent.100" p={3} borderRadius="lg">
-                      <Icon as={ChatIcon} color="accent.500" boxSize={6} />
+                      <Icon as={ChatIcon} color="yellow" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Share Feedback
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Submit feature requests, improvements, and bug reports
                         to help us build better tools.
                       </Text>
