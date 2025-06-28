@@ -142,17 +142,17 @@ const roadmapItems: RoadmapItem[] = [
 
 const statusConfig = {
   PLANNED: {
-    title: "📋 Planned",
+    title: "Planned",
     color: "blue",
     description: "Ideas approved for development",
   },
   IN_PROGRESS: {
-    title: "🚧 In Progress",
+    title: "In Progress",
     color: "orange",
     description: "Currently being developed",
   },
   COMPLETED: {
-    title: "✅ Completed",
+    title: "Completed",
     color: "green",
     description: "Recently shipped features",
   },
