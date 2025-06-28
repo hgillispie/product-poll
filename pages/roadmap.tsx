@@ -684,22 +684,44 @@ const Roadmap: NextPage = () => {
                 w="max-content"
               >
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="BACKLOG" items={backlogItems} />
+                  <RoadmapColumn
+                    status="BACKLOG"
+                    items={backlogItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
                   <RoadmapColumn
                     status="UNDER_REVIEW"
                     items={underReviewItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
                   />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="PLANNED" items={plannedItems} />
+                  <RoadmapColumn
+                    status="PLANNED"
+                    items={plannedItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
+                  <RoadmapColumn
+                    status="IN_PROGRESS"
+                    items={inProgressItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
                 <Box minW="300px" maxW="300px">
-                  <RoadmapColumn status="COMPLETED" items={completedItems} />
+                  <RoadmapColumn
+                    status="COMPLETED"
+                    items={completedItems}
+                    onVote={handleVote}
+                    onComment={handleComment}
+                  />
                 </Box>
               </HStack>
             </Box>
