@@ -374,8 +374,8 @@ const Roadmap: NextPage = () => {
           <Card bg="blue.50" borderColor="blue.200">
             <CardBody textAlign="center">
               <Text color="blue.800" fontSize="sm">
-                <strong>💡 Have an idea?</strong> Submit your feature requests
-                and help us prioritize what to build next!
+                <strong>Have an idea?</strong> Submit your feature requests and
+                help us prioritize what to build next!
               </Text>
             </CardBody>
           </Card>
