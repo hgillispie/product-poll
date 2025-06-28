@@ -313,9 +313,13 @@ const statusConfig = {
 const RoadmapColumn = ({
   status,
   items,
+  onVote,
+  onComment,
 }: {
   status: keyof typeof statusConfig;
   items: RoadmapItem[];
+  onVote: (itemId: string) => void;
+  onComment: (itemId: string) => void;
 }) => {
   const config = statusConfig[status];
 
