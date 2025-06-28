@@ -41,6 +41,7 @@ interface RoadmapItem {
   comments: number;
   progress?: number; // Only for IN_PROGRESS items
   quarter?: string; // Target quarter for completion
+  hasVoted?: boolean; // Whether current user has voted
 }
 
 // Mock roadmap data
