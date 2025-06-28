@@ -510,18 +510,23 @@ const Roadmap: NextPage = () => {
           item.id === itemId
             ? {
                 ...item,
-                votes: result.data.votes,
-                hasVoted: result.data.hasVoted,
+                votes: item.hasVoted ? item.votes - 1 : item.votes + 1,
+                hasVoted: !item.hasVoted,
               }
             : item,
         ),
       );
 
       toast({
-        title: result.data.hasVoted ? "Vote added!" : "Vote removed!",
+        title: "Vote registered",
         status: "success",
         duration: 2000,
         isClosable: true,
+        variant: "solid",
+        containerStyle: {
+          backgroundColor: "#48BB78",
+          color: "white",
+        },
       });
     } catch (error) {
       console.error("Error voting:", error);
