@@ -30,7 +30,7 @@ const Header = () => {
     >
       <Flex align="center" maxW="container.xl" mx="auto">
         {/* Builder.io Logo */}
-        <Link href="/ideas">
+        <Link href="/">
           <HStack cursor="pointer" spacing={3}>
             <Box
               bg="brand.500"
@@ -40,7 +40,7 @@ const Header = () => {
               borderRadius="lg"
               fontWeight="bold"
             >
-              🧱
+              B
             </Box>
             <Heading size="md" color="gray.900">
               Builder Feedback
@@ -58,7 +58,7 @@ const Header = () => {
               color="gray.600"
               _hover={{ color: "brand.500" }}
             >
-              💡 Ideas
+              Ideas
             </Button>
           </Link>
           <Link href="/submit">
@@ -67,7 +67,7 @@ const Header = () => {
               color="gray.600"
               _hover={{ color: "brand.500" }}
             >
-              📝 Submit
+              Submit
             </Button>
           </Link>
           <Link href="/roadmap">
@@ -76,7 +76,7 @@ const Header = () => {
               color="gray.600"
               _hover={{ color: "brand.500" }}
             >
-              🗺️ Roadmap
+              Roadmap
             </Button>
           </Link>
 
