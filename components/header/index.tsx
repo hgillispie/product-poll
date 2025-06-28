@@ -14,13 +14,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-
-// Mock user data - in a real app this would come from auth context
-const mockUser = {
-  name: "Alex Johnson",
-  email: "alex@builder.io",
-  avatar: "https://bit.ly/sage-adebayo",
-};
+import { useAuth } from "../../contexts/auth";
 
 const Header = () => {
   return (
