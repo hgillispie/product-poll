@@ -256,7 +256,7 @@ const Home: NextPage = () => {
                   <Heading size="lg" mb={4} color="gray.900">
                     Ready to Get Started?
                   </Heading>
-                  <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
+                  <Text size="lg" color="gray.600" maxW="2xl" mx="auto">
                     Join hundreds of developers and designers who are helping
                     shape the future of visual development.
                   </Text>
@@ -266,11 +266,15 @@ const Home: NextPage = () => {
                   <Link href="/ideas">
                     <Button
                       size="lg"
-                      colorScheme="brand"
+                      bg="purple"
+                      color="white"
                       px={8}
                       py={6}
-                      fontSize="lg"
-                      fontWeight="600"
+                      _hover={{
+                        bg: "brand.600",
+                        transform: "translateY(-1px)",
+                        boxShadow: "lg",
+                      }}
                     >
                       Explore Ideas
                     </Button>
@@ -279,11 +283,14 @@ const Home: NextPage = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      colorScheme="brand"
+                      borderColor="purple"
+                      color="purple"
                       px={8}
                       py={6}
-                      fontSize="lg"
-                      fontWeight="600"
+                      _hover={{
+                        bg: "brand.50",
+                        transform: "translateY(-1px)",
+                      }}
                     >
                       View Roadmap
                     </Button>
