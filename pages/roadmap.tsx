@@ -142,7 +142,7 @@ const roadmapItems: RoadmapItem[] = [
 
   // IN_PROGRESS
   {
-    id: "4",
+    id: "11",
     title: "Dark Mode for Dashboard",
     description:
       "System-wide dark mode theme for the Builder.io dashboard and visual editor.",
@@ -154,7 +154,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q1 2024",
   },
   {
-    id: "5",
+    id: "12",
     title: "Real-time Collaboration",
     description:
       "Multiple users can edit the same content simultaneously with live cursors and conflict resolution.",
@@ -166,7 +166,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q1 2024",
   },
   {
-    id: "6",
+    id: "13",
     title: "Enhanced TypeScript Support",
     description:
       "Better TypeScript intellisense, error handling, and type safety in the visual editor.",
@@ -177,10 +177,22 @@ const roadmapItems: RoadmapItem[] = [
     progress: 60,
     quarter: "Q1 2024",
   },
+  {
+    id: "14",
+    title: "Advanced Form Builder",
+    description:
+      "Drag-and-drop form builder with conditional logic, validation rules, and submission handling.",
+    status: "IN_PROGRESS",
+    tags: ["forms", "builder", "validation"],
+    votes: 178,
+    comments: 32,
+    progress: 25,
+    quarter: "Q2 2024",
+  },
 
   // COMPLETED
   {
-    id: "7",
+    id: "15",
     title: "Figma Plugin 2.0",
     description:
       "Complete redesign of the Figma plugin with improved sync, better component mapping, and batch operations.",
@@ -191,7 +203,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q4 2023",
   },
   {
-    id: "8",
+    id: "16",
     title: "Webhook Management Dashboard",
     description:
       "Visual interface for managing webhooks with testing, logs, and retry mechanisms.",
@@ -202,7 +214,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q4 2023",
   },
   {
-    id: "9",
+    id: "17",
     title: "Performance Analytics",
     description:
       "Detailed performance metrics for published content including Core Web Vitals tracking.",
@@ -211,6 +223,28 @@ const roadmapItems: RoadmapItem[] = [
     votes: 178,
     comments: 41,
     quarter: "Q4 2023",
+  },
+  {
+    id: "18",
+    title: "Content Scheduling System",
+    description:
+      "Schedule content publication and updates with timezone support and automated workflows.",
+    status: "COMPLETED",
+    tags: ["scheduling", "automation", "cms"],
+    votes: 145,
+    comments: 29,
+    quarter: "Q4 2023",
+  },
+  {
+    id: "19",
+    title: "Enhanced Media Library",
+    description:
+      "Improved media management with AI-powered tagging, bulk operations, and CDN optimization.",
+    status: "COMPLETED",
+    tags: ["media", "ai", "cdn"],
+    votes: 123,
+    comments: 24,
+    quarter: "Q3 2023",
   },
 ];
 
