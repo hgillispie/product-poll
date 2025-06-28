@@ -165,7 +165,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -182,7 +182,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       Submit Ideas
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       Share your feature requests, improvements, or report
                       issues
                     </Text>
