@@ -230,6 +230,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 312,
     comments: 67,
     quarter: "Q4 2023",
+    hasVoted: true,
   },
   {
     id: "16",
@@ -241,6 +242,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 89,
     comments: 19,
     quarter: "Q4 2023",
+    hasVoted: false,
   },
   {
     id: "17",
@@ -252,6 +254,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 178,
     comments: 41,
     quarter: "Q4 2023",
+    hasVoted: false,
   },
   {
     id: "18",
@@ -263,6 +266,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 145,
     comments: 29,
     quarter: "Q4 2023",
+    hasVoted: true,
   },
   {
     id: "19",
@@ -274,6 +278,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 123,
     comments: 24,
     quarter: "Q3 2023",
+    hasVoted: false,
   },
 ];
 
