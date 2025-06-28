@@ -413,11 +413,34 @@ const RoadmapColumn = ({
                   >
                     <HStack spacing={3}>
                       <HStack spacing={1}>
-                        <ChevronUpIcon />
+                        <IconButton
+                          aria-label="Vote on roadmap item"
+                          icon={<ChevronUpIcon />}
+                          size="xs"
+                          variant={item.hasVoted ? "solid" : "ghost"}
+                          bg={item.hasVoted ? "purple" : "transparent"}
+                          color={item.hasVoted ? "white" : "gray.500"}
+                          _hover={{
+                            bg: item.hasVoted ? "brand.600" : "purple",
+                            color: "white",
+                          }}
+                          onClick={() => onVote(item.id)}
+                        />
                         <Text>{item.votes}</Text>
                       </HStack>
                       <HStack spacing={1}>
-                        <ChatIcon />
+                        <IconButton
+                          aria-label="View comments"
+                          icon={<ChatIcon />}
+                          size="xs"
+                          variant="ghost"
+                          color="gray.500"
+                          _hover={{
+                            bg: "gray.100",
+                            color: "gray.600",
+                          }}
+                          onClick={() => onComment(item.id)}
+                        />
                         <Text>{item.comments}</Text>
                       </HStack>
                     </HStack>
