@@ -97,7 +97,7 @@ const mockIdeas: Idea[] = [
 
 const statusColors = {
   SUBMITTED: "gray",
-  PLANNED: "blue",
+  PLANNED: "lightBlue",
   IN_PROGRESS: "orange",
   COMPLETED: "green",
   REJECTED: "red",
