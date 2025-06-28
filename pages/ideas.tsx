@@ -189,14 +189,13 @@ const Ideas: NextPage = () => {
         <VStack spacing={6} align="stretch">
           <Box>
             <Heading size="xl" mb={2} color="gray.900">
-              💡 Product Ideas & Feedback
+              Product Ideas & Feedback
             </Heading>
             <Text color="gray.600" fontSize="lg">
               Help shape the future of Builder.io by voting on ideas and sharing
               your feedback
             </Text>
           </Box>
-
           {/* Filters and Search */}
           <Card>
             <CardBody>
