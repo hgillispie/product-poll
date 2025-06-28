@@ -294,7 +294,12 @@ const Ideas: NextPage = () => {
                       {/* Tags */}
                       <HStack spacing={2} mb={3}>
                         {idea.tags.map((tag) => (
-                          <Badge key={tag} variant="subtle" colorScheme="brand">
+                          <Badge
+                            key={tag}
+                            variant="subtle"
+                            bg="brand.100"
+                            color="purple"
+                          >
                             {tag}
                           </Badge>
                         ))}
