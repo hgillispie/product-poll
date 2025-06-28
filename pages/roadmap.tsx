@@ -302,7 +302,7 @@ const Roadmap: NextPage = () => {
           {/* Page Header */}
           <Box textAlign="center">
             <Heading size="xl" mb={2} color="gray.900">
-              🗺️ Product Roadmap
+              Product Roadmap
             </Heading>
             <Text color="gray.600" fontSize="lg" maxW="2xl" mx="auto">
               Track the progress of Builder.io features from idea to completion.
