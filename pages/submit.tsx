@@ -315,7 +315,7 @@ const Submit: NextPage = () => {
           <Card bg="blue.50" borderColor="blue.200">
             <CardBody>
               <Heading size="sm" color="blue.800" mb={2}>
-                💡 Tips for a great submission:
+                Tips for a great submission:
               </Heading>
               <Stack spacing={1} color="blue.700" fontSize="sm">
                 <Text>
