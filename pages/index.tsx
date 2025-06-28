@@ -1,13 +1,16 @@
-import { Container } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import type { NextPage } from "next";
-import Header from "@/header";
 
 const Home: NextPage = () => {
-	return (
-		<Container maxW="container.lg">
-			<Header />
-		</Container>
-	);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Redirect to ideas page on load
+    router.replace("/ideas");
+  }, [router]);
+
+  return null;
 };
 
 export default Home;
