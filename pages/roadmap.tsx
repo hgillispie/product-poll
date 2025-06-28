@@ -21,7 +21,7 @@ interface RoadmapItem {
   id: string;
   title: string;
   description: string;
-  status: "PLANNED" | "IN_PROGRESS" | "COMPLETED";
+  status: "BACKLOG" | "UNDER_REVIEW" | "PLANNED" | "IN_PROGRESS" | "COMPLETED";
   tags: string[];
   votes: number;
   comments: number;
@@ -31,9 +31,83 @@ interface RoadmapItem {
 
 // Mock roadmap data
 const roadmapItems: RoadmapItem[] = [
-  // PLANNED
+  // BACKLOG
   {
     id: "1",
+    title: "AI-Powered Content Suggestions",
+    description:
+      "Intelligent content recommendations based on user behavior and performance analytics.",
+    status: "BACKLOG",
+    tags: ["ai", "content", "analytics"],
+    votes: 45,
+    comments: 8,
+  },
+  {
+    id: "2",
+    title: "Advanced SEO Optimization Tools",
+    description:
+      "Built-in SEO analysis with recommendations for meta tags, structured data, and performance.",
+    status: "BACKLOG",
+    tags: ["seo", "optimization", "analytics"],
+    votes: 67,
+    comments: 12,
+  },
+  {
+    id: "3",
+    title: "Voice Interface for Content Creation",
+    description:
+      "Voice commands for hands-free content editing and navigation through the builder interface.",
+    status: "BACKLOG",
+    tags: ["voice", "accessibility", "editor"],
+    votes: 23,
+    comments: 4,
+  },
+  {
+    id: "4",
+    title: "Advanced Security Dashboard",
+    description:
+      "Comprehensive security monitoring with audit logs, access controls, and threat detection.",
+    status: "BACKLOG",
+    tags: ["security", "monitoring", "compliance"],
+    votes: 89,
+    comments: 16,
+  },
+
+  // UNDER_REVIEW
+  {
+    id: "5",
+    title: "GraphQL API Enhancement",
+    description:
+      "Extended GraphQL API with real-time subscriptions and advanced filtering capabilities.",
+    status: "UNDER_REVIEW",
+    tags: ["api", "graphql", "realtime"],
+    votes: 134,
+    comments: 28,
+  },
+  {
+    id: "6",
+    title: "Multi-Brand Content Management",
+    description:
+      "Support for managing multiple brands with separate themes, assets, and content libraries.",
+    status: "UNDER_REVIEW",
+    tags: ["multi-tenant", "branding", "cms"],
+    votes: 156,
+    comments: 34,
+  },
+  {
+    id: "7",
+    title: "Advanced Component Library",
+    description:
+      "Expanded component library with advanced layout options and interactive elements.",
+    status: "UNDER_REVIEW",
+    tags: ["components", "library", "editor"],
+    votes: 98,
+    comments: 21,
+  },
+
+  // PLANNED
+  {
+    id: "8",
     title: "Advanced A/B Testing Suite",
     description:
       "Comprehensive A/B testing framework with statistical significance tracking and advanced targeting rules.",
@@ -44,7 +118,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q2 2024",
   },
   {
-    id: "2",
+    id: "9",
     title: "Mobile App Content Management",
     description:
       "Native mobile app for content creators to manage and publish content on the go.",
@@ -55,7 +129,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q3 2024",
   },
   {
-    id: "3",
+    id: "10",
     title: "Enhanced Localization Tools",
     description:
       "Better translation workflow with context-aware suggestions and collaboration features.",
@@ -68,7 +142,7 @@ const roadmapItems: RoadmapItem[] = [
 
   // IN_PROGRESS
   {
-    id: "4",
+    id: "11",
     title: "Dark Mode for Dashboard",
     description:
       "System-wide dark mode theme for the Builder.io dashboard and visual editor.",
@@ -80,7 +154,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q1 2024",
   },
   {
-    id: "5",
+    id: "12",
     title: "Real-time Collaboration",
     description:
       "Multiple users can edit the same content simultaneously with live cursors and conflict resolution.",
@@ -92,7 +166,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q1 2024",
   },
   {
-    id: "6",
+    id: "13",
     title: "Enhanced TypeScript Support",
     description:
       "Better TypeScript intellisense, error handling, and type safety in the visual editor.",
@@ -103,10 +177,22 @@ const roadmapItems: RoadmapItem[] = [
     progress: 60,
     quarter: "Q1 2024",
   },
+  {
+    id: "14",
+    title: "Advanced Form Builder",
+    description:
+      "Drag-and-drop form builder with conditional logic, validation rules, and submission handling.",
+    status: "IN_PROGRESS",
+    tags: ["forms", "builder", "validation"],
+    votes: 178,
+    comments: 32,
+    progress: 25,
+    quarter: "Q2 2024",
+  },
 
   // COMPLETED
   {
-    id: "7",
+    id: "15",
     title: "Figma Plugin 2.0",
     description:
       "Complete redesign of the Figma plugin with improved sync, better component mapping, and batch operations.",
@@ -117,7 +203,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q4 2023",
   },
   {
-    id: "8",
+    id: "16",
     title: "Webhook Management Dashboard",
     description:
       "Visual interface for managing webhooks with testing, logs, and retry mechanisms.",
@@ -128,7 +214,7 @@ const roadmapItems: RoadmapItem[] = [
     quarter: "Q4 2023",
   },
   {
-    id: "9",
+    id: "17",
     title: "Performance Analytics",
     description:
       "Detailed performance metrics for published content including Core Web Vitals tracking.",
@@ -138,9 +224,41 @@ const roadmapItems: RoadmapItem[] = [
     comments: 41,
     quarter: "Q4 2023",
   },
+  {
+    id: "18",
+    title: "Content Scheduling System",
+    description:
+      "Schedule content publication and updates with timezone support and automated workflows.",
+    status: "COMPLETED",
+    tags: ["scheduling", "automation", "cms"],
+    votes: 145,
+    comments: 29,
+    quarter: "Q4 2023",
+  },
+  {
+    id: "19",
+    title: "Enhanced Media Library",
+    description:
+      "Improved media management with AI-powered tagging, bulk operations, and CDN optimization.",
+    status: "COMPLETED",
+    tags: ["media", "ai", "cdn"],
+    votes: 123,
+    comments: 24,
+    quarter: "Q3 2023",
+  },
 ];
 
 const statusConfig = {
+  BACKLOG: {
+    title: "Backlog",
+    color: "gray",
+    description: "Ideas under consideration",
+  },
+  UNDER_REVIEW: {
+    title: "Under Review",
+    color: "purple",
+    description: "Ideas being evaluated",
+  },
   PLANNED: {
     title: "Planned",
     color: "blue",
@@ -235,7 +353,8 @@ const RoadmapColumn = ({
                       <Badge
                         key={tag}
                         variant="subtle"
-                        colorScheme="brand"
+                        bg="brand.100"
+                        color="purple"
                         fontSize="xs"
                       >
                         {tag}
@@ -285,6 +404,10 @@ const RoadmapColumn = ({
 };
 
 const Roadmap: NextPage = () => {
+  const backlogItems = roadmapItems.filter((item) => item.status === "BACKLOG");
+  const underReviewItems = roadmapItems.filter(
+    (item) => item.status === "UNDER_REVIEW",
+  );
   const plannedItems = roadmapItems.filter((item) => item.status === "PLANNED");
   const inProgressItems = roadmapItems.filter(
     (item) => item.status === "IN_PROGRESS",
@@ -314,35 +437,51 @@ const Roadmap: NextPage = () => {
           <Card>
             <CardBody>
               <Grid
-                templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-                gap={6}
+                templateColumns="repeat(auto-fit, minmax(150px, 1fr))"
+                gap={4}
               >
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="blue.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="gray.500">
+                    {backlogItems.length}
+                  </Text>
+                  <Text color="gray.600" fontSize="sm">
+                    In Backlog
+                  </Text>
+                </Box>
+                <Box textAlign="center">
+                  <Text fontSize="2xl" fontWeight="bold" color="purple">
+                    {underReviewItems.length}
+                  </Text>
+                  <Text color="gray.600" fontSize="sm">
+                    Under Review
+                  </Text>
+                </Box>
+                <Box textAlign="center">
+                  <Text fontSize="2xl" fontWeight="bold" color="lightBlue">
                     {plannedItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    Features Planned
+                    Planned
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="orange.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="orange">
                     {inProgressItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    In Development
+                    In Progress
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="green.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="green">
                     {completedItems.length}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
-                    Recently Shipped
+                    Completed
                   </Text>
                 </Box>
                 <Box textAlign="center">
-                  <Text fontSize="2xl" fontWeight="bold" color="brand.500">
+                  <Text fontSize="2xl" fontWeight="bold" color="purple">
                     {roadmapItems.reduce((sum, item) => sum + item.votes, 0)}
                   </Text>
                   <Text color="gray.600" fontSize="sm">
@@ -354,21 +493,38 @@ const Roadmap: NextPage = () => {
           </Card>
 
           {/* Kanban Board */}
-          <Grid
-            templateColumns={["1fr", "1fr", "repeat(3, 1fr)"]}
-            gap={6}
-            alignItems="start"
-          >
-            <GridItem>
-              <RoadmapColumn status="PLANNED" items={plannedItems} />
-            </GridItem>
-            <GridItem>
-              <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
-            </GridItem>
-            <GridItem>
-              <RoadmapColumn status="COMPLETED" items={completedItems} />
-            </GridItem>
-          </Grid>
+          <Box>
+            <Text color="gray.600" fontSize="sm" mb={4}>
+              Scroll horizontally to see all stages →
+            </Text>
+            <Box overflowX="auto" pb={4}>
+              <HStack
+                spacing={6}
+                alignItems="start"
+                minW="max-content"
+                w="max-content"
+              >
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="BACKLOG" items={backlogItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn
+                    status="UNDER_REVIEW"
+                    items={underReviewItems}
+                  />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="PLANNED" items={plannedItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="IN_PROGRESS" items={inProgressItems} />
+                </Box>
+                <Box minW="300px" maxW="300px">
+                  <RoadmapColumn status="COMPLETED" items={completedItems} />
+                </Box>
+              </HStack>
+            </Box>
+          </Box>
 
           {/* Footer Note */}
           <Card bg="blue.50" borderColor="blue.200">

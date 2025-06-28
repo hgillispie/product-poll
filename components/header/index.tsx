@@ -53,7 +53,7 @@ const Header = () => {
             <Button
               variant="ghost"
               color="gray.600"
-              _hover={{ color: "brand.500" }}
+              _hover={{ color: "purple" }}
             >
               Ideas
             </Button>
@@ -62,7 +62,7 @@ const Header = () => {
             <Button
               variant="ghost"
               color="gray.600"
-              _hover={{ color: "brand.500" }}
+              _hover={{ color: "purple" }}
             >
               Submit
             </Button>
@@ -71,7 +71,7 @@ const Header = () => {
             <Button
               variant="ghost"
               color="gray.600"
-              _hover={{ color: "brand.500" }}
+              _hover={{ color: "purple" }}
             >
               Roadmap
             </Button>
@@ -85,7 +85,7 @@ const Header = () => {
                   <Avatar
                     size="sm"
                     name={user.name}
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                   />
                   <Text fontSize="sm" color="gray.700">

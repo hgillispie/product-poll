@@ -97,7 +97,7 @@ const mockIdeas: Idea[] = [
 
 const statusColors = {
   SUBMITTED: "gray",
-  PLANNED: "blue",
+  PLANNED: "lightBlue",
   IN_PROGRESS: "orange",
   COMPLETED: "green",
   REJECTED: "red",
@@ -177,6 +177,11 @@ const Ideas: NextPage = () => {
       status: "success",
       duration: 2000,
       isClosable: true,
+      variant: "solid",
+      containerStyle: {
+        backgroundColor: "#48BB78",
+        color: "white",
+      },
     });
   };
 
@@ -191,7 +196,7 @@ const Ideas: NextPage = () => {
             <Heading size="xl" mb={2} color="gray.900">
               Product Ideas & Feedback
             </Heading>
-            <Text color="gray.600" fontSize="lg">
+            <Text color="gray.600" size="lg">
               Help shape the future of Builder.io by voting on ideas and sharing
               your feedback
             </Text>
@@ -261,7 +266,14 @@ const Ideas: NextPage = () => {
                         icon={<ChevronUpIcon />}
                         size="sm"
                         variant={idea.hasVoted ? "solid" : "outline"}
-                        colorScheme={idea.hasVoted ? "brand" : "gray"}
+                        bg={idea.hasVoted ? "purple" : "transparent"}
+                        color={idea.hasVoted ? "white" : "gray.600"}
+                        borderColor={idea.hasVoted ? "purple" : "gray.300"}
+                        _hover={{
+                          bg: idea.hasVoted ? "brand.600" : "purple",
+                          color: "white",
+                          borderColor: "purple",
+                        }}
                         onClick={() => handleVote(idea.id)}
                       />
                       <Text fontSize="sm" fontWeight="bold" color="gray.600">
@@ -287,7 +299,12 @@ const Ideas: NextPage = () => {
                       {/* Tags */}
                       <HStack spacing={2} mb={3}>
                         {idea.tags.map((tag) => (
-                          <Badge key={tag} variant="subtle" colorScheme="brand">
+                          <Badge
+                            key={tag}
+                            variant="subtle"
+                            bg="brand.100"
+                            color="purple"
+                          >
                             {tag}
                           </Badge>
                         ))}

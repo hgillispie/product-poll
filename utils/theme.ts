@@ -10,33 +10,46 @@ const theme = extendTheme({
   config,
   fonts: {
     heading:
-      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-    body: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+    body: "Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
   },
   colors: {
+    // Design token colors
+    purple: "#ac7ef4",
+    pink: "#eeb1ca",
+    lightBlue: "#18b6f6",
+    darkBlue: "#006ce9",
+    orange: "#ef6c41",
+    yellow: "#f7c92e",
+    green: "#33b533",
+    black: "#000000",
+    white: "#ffffff",
+    dirtyBlack: "#1d2023",
+
+    // Updated brand colors using design tokens
     brand: {
-      50: "#f5f1ff",
-      100: "#ede4ff",
-      200: "#dcc9ff",
-      300: "#c8a8ff",
-      400: "#b087ff",
-      500: "#8247E5", // Builder purple
-      600: "#7338d1",
-      700: "#632bb8",
-      800: "#52249a",
-      900: "#451f7e",
+      50: "#f3f0fd",
+      100: "#e8e1fb",
+      200: "#d6c7f7",
+      300: "#bfa1f1",
+      400: "#ac7ef4", // From design tokens - purple
+      500: "#9963e8",
+      600: "#8649d4",
+      700: "#7138b8",
+      800: "#5d2f96",
+      900: "#4d2979",
     },
     accent: {
-      50: "#fffbeb",
-      100: "#fef3c7",
-      200: "#fde68a",
-      300: "#fcd34d",
-      400: "#fbbf24",
-      500: "#f59e0b", // Soft yellow accent
-      600: "#d97706",
-      700: "#b45309",
-      800: "#92400e",
-      900: "#78350f",
+      50: "#fefbf0",
+      100: "#fef5dc",
+      200: "#fde9b4",
+      300: "#fcdb81",
+      400: "#f7c92e", // From design tokens - yellow
+      500: "#f4b91a",
+      600: "#d99c0f",
+      700: "#b47b0f",
+      800: "#925f14",
+      900: "#784f16",
     },
     gray: {
       50: "#fafafa",
@@ -48,13 +61,16 @@ const theme = extendTheme({
       600: "#525252",
       700: "#404040",
       800: "#262626",
-      900: "#171717",
+      900: "#1d2023", // From design tokens - dirty black
     },
   },
   components: {
     Button: {
       baseStyle: {
-        fontWeight: "600",
+        fontFamily: "Poppins",
+        fontSize: "16px", // Button typography from design tokens
+        lineHeight: "24px",
+        fontWeight: "500",
         borderRadius: "lg",
       },
       variants: {
@@ -90,18 +106,60 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
+        fontFamily: "Poppins",
         fontWeight: "700",
         color: "gray.900",
       },
       sizes: {
+        "2xl": {
+          fontSize: ["35px", "55px"], // Mobile H1 / Desktop H1 from design tokens
+          lineHeight: ["45px", "66px"],
+          letterSpacing: ["-1.05px", "-1.65px"],
+        },
         xl: {
-          fontSize: ["2.5rem", "3rem", "3.5rem"],
+          fontSize: ["28px", "40px"], // Mobile H2 / Desktop H2 from design tokens
+          lineHeight: ["36px", "52px"],
+          letterSpacing: ["-0.84px", "-1.2px"],
+          fontWeight: "500",
         },
         lg: {
-          fontSize: ["1.75rem", "2rem", "2.25rem"],
+          fontSize: "32px", // H3 from design tokens
+          lineHeight: "44px",
+          letterSpacing: "-0.96px",
+          fontWeight: "500",
         },
         md: {
-          fontSize: ["1.25rem", "1.375rem", "1.5rem"],
+          fontSize: "24px", // H4 from design tokens
+          lineHeight: "31.2px",
+          letterSpacing: "-0.24px",
+          fontWeight: "500",
+        },
+      },
+    },
+    Text: {
+      baseStyle: {
+        fontFamily: "Poppins",
+      },
+      sizes: {
+        lg: {
+          fontSize: "16px", // Paragraph from design tokens
+          lineHeight: "27px",
+          fontWeight: "400",
+        },
+        md: {
+          fontSize: "16px", // Paragraph from design tokens
+          lineHeight: "27px",
+          fontWeight: "400",
+        },
+        sm: {
+          fontSize: "14px", // Small paragraph from design tokens
+          lineHeight: "19.6px",
+          fontWeight: "400",
+        },
+        xs: {
+          fontSize: "14px", // Mobile paragraph from design tokens
+          lineHeight: "24px",
+          fontWeight: "400",
         },
       },
     },

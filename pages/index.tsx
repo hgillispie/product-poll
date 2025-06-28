@@ -34,22 +34,10 @@ const Home: NextPage = () => {
           {/* Hero Section */}
           <VStack spacing={8} textAlign="center" py={8}>
             <Box>
-              <Heading
-                size="2xl"
-                color="gray.900"
-                mb={4}
-                fontWeight="800"
-                lineHeight="shorter"
-              >
+              <Heading size="2xl" color="gray.900" mb={4}>
                 Shape the Future of Builder.io
               </Heading>
-              <Text
-                fontSize="xl"
-                color="gray.600"
-                maxW="3xl"
-                mx="auto"
-                lineHeight="tall"
-              >
+              <Text size="lg" color="gray.600" maxW="3xl" mx="auto">
                 Your voice matters. Share ideas, vote on features, and help us
                 build the visual development platform that empowers your team.
               </Text>
@@ -59,12 +47,16 @@ const Home: NextPage = () => {
               <Link href="/ideas">
                 <Button
                   size="lg"
-                  colorScheme="brand"
+                  bg="purple"
+                  color="white"
                   rightIcon={<ArrowForwardIcon />}
                   px={8}
                   py={6}
-                  fontSize="lg"
-                  fontWeight="600"
+                  _hover={{
+                    bg: "brand.600",
+                    transform: "translateY(-1px)",
+                    boxShadow: "lg",
+                  }}
                 >
                   Browse Ideas
                 </Button>
@@ -73,11 +65,14 @@ const Home: NextPage = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  colorScheme="brand"
+                  borderColor="purple"
+                  color="purple"
                   px={8}
                   py={6}
-                  fontSize="lg"
-                  fontWeight="600"
+                  _hover={{
+                    bg: "brand.50",
+                    transform: "translateY(-1px)",
+                  }}
                 >
                   Submit Feedback
                 </Button>
@@ -92,13 +87,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="brand.100" p={3} borderRadius="lg">
-                      <Icon as={StarIcon} color="brand.500" boxSize={6} />
+                      <Icon as={StarIcon} color="purple" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Vote on Ideas
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Help prioritize features by voting on ideas that matter
                         most to you and your team.
                       </Text>
@@ -113,13 +108,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="accent.100" p={3} borderRadius="lg">
-                      <Icon as={ChatIcon} color="accent.500" boxSize={6} />
+                      <Icon as={ChatIcon} color="yellow" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Share Feedback
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Submit feature requests, improvements, and bug reports
                         to help us build better tools.
                       </Text>
@@ -134,13 +129,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="blue.100" p={3} borderRadius="lg">
-                      <Icon as={CalendarIcon} color="blue.500" boxSize={6} />
+                      <Icon as={CalendarIcon} color="lightBlue" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Track Progress
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Follow your ideas through our roadmap from submission to
                         completion.
                       </Text>
@@ -157,7 +152,7 @@ const Home: NextPage = () => {
               <Heading size="lg" mb={4} color="gray.900">
                 How It Works
               </Heading>
-              <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
+              <Text size="lg" color="gray.600" maxW="2xl" mx="auto">
                 Join the Builder.io community in shaping our platform
               </Text>
             </Box>
@@ -170,7 +165,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -187,7 +182,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       Submit Ideas
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       Share your feature requests, improvements, or report
                       issues
                     </Text>
@@ -198,7 +193,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -215,7 +210,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       Community Votes
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       The community votes on ideas to help us prioritize
                       development
                     </Text>
@@ -226,7 +221,7 @@ const Home: NextPage = () => {
               <GridItem textAlign="center">
                 <VStack spacing={4}>
                   <Box
-                    bg="brand.500"
+                    bg="purple"
                     color="white"
                     borderRadius="full"
                     w={12}
@@ -243,7 +238,7 @@ const Home: NextPage = () => {
                     <Heading size="md" mb={2} color="gray.900">
                       We Build It
                     </Heading>
-                    <Text color="gray.600">
+                    <Text size="md" color="gray.600">
                       Top-voted features get built and released to improve
                       Builder.io
                     </Text>
@@ -261,7 +256,7 @@ const Home: NextPage = () => {
                   <Heading size="lg" mb={4} color="gray.900">
                     Ready to Get Started?
                   </Heading>
-                  <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
+                  <Text size="lg" color="gray.600" maxW="2xl" mx="auto">
                     Join hundreds of developers and designers who are helping
                     shape the future of visual development.
                   </Text>
@@ -271,11 +266,15 @@ const Home: NextPage = () => {
                   <Link href="/ideas">
                     <Button
                       size="lg"
-                      colorScheme="brand"
+                      bg="purple"
+                      color="white"
                       px={8}
                       py={6}
-                      fontSize="lg"
-                      fontWeight="600"
+                      _hover={{
+                        bg: "brand.600",
+                        transform: "translateY(-1px)",
+                        boxShadow: "lg",
+                      }}
                     >
                       Explore Ideas
                     </Button>
@@ -284,11 +283,14 @@ const Home: NextPage = () => {
                     <Button
                       size="lg"
                       variant="outline"
-                      colorScheme="brand"
+                      borderColor="purple"
+                      color="purple"
                       px={8}
                       py={6}
-                      fontSize="lg"
-                      fontWeight="600"
+                      _hover={{
+                        bg: "brand.50",
+                        transform: "translateY(-1px)",
+                      }}
                     >
                       View Roadmap
                     </Button>
