@@ -319,7 +319,7 @@ const Submit: NextPage = () => {
               </Heading>
               <Stack spacing={1} color="blue.700" fontSize="sm">
                 <Text>
-                  • Be specific about the problem you're trying to solve
+                  • Be specific about the problem you&apos;re trying to solve
                 </Text>
                 <Text>
                   • Explain how your idea would improve the user experience
