@@ -17,6 +17,8 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useAuth } from "../../contexts/auth";
 
 const Header = () => {
+  const { user, logout } = useAuth();
+
   return (
     <Box
       as="header"
@@ -79,22 +81,26 @@ const Header = () => {
           </Link>
 
           {/* User Profile Dropdown */}
-          <Menu>
-            <MenuButton>
-              <HStack spacing={2} cursor="pointer">
-                <Avatar size="sm" src={mockUser.avatar} name={mockUser.name} />
-                <Text fontSize="sm" color="gray.700">
-                  {mockUser.name}
-                </Text>
-                <ChevronDownIcon color="gray.500" />
-              </HStack>
-            </MenuButton>
-            <MenuList>
-              <MenuItem color="gray.600">👤 Profile</MenuItem>
-              <MenuItem color="gray.600">⚙️ Settings</MenuItem>
-              <MenuItem color="gray.600">🚪 Sign out</MenuItem>
-            </MenuList>
-          </Menu>
+          {user && (
+            <Menu>
+              <MenuButton>
+                <HStack spacing={2} cursor="pointer">
+                  <Avatar size="sm" src={user.avatar} name={user.name} />
+                  <Text fontSize="sm" color="gray.700">
+                    {user.name}
+                  </Text>
+                  <ChevronDownIcon color="gray.500" />
+                </HStack>
+              </MenuButton>
+              <MenuList>
+                <MenuItem color="gray.600">👤 Profile</MenuItem>
+                <MenuItem color="gray.600">⚙️ Settings</MenuItem>
+                <MenuItem color="gray.600" onClick={logout}>
+                  🚪 Sign out
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          )}
         </HStack>
       </Flex>
     </Box>
