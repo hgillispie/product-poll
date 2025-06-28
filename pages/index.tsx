@@ -129,13 +129,13 @@ const Home: NextPage = () => {
                 <CardBody>
                   <VStack spacing={4} align="start">
                     <Box bg="blue.100" p={3} borderRadius="lg">
-                      <Icon as={CalendarIcon} color="blue.500" boxSize={6} />
+                      <Icon as={CalendarIcon} color="lightBlue" boxSize={6} />
                     </Box>
                     <Box>
                       <Heading size="md" mb={2} color="gray.900">
                         Track Progress
                       </Heading>
-                      <Text color="gray.600">
+                      <Text size="md" color="gray.600">
                         Follow your ideas through our roadmap from submission to
                         completion.
                       </Text>
