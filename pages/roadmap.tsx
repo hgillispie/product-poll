@@ -138,6 +138,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 156,
     comments: 34,
     quarter: "Q2 2024",
+    hasVoted: false,
   },
   {
     id: "9",
@@ -149,6 +150,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 89,
     comments: 22,
     quarter: "Q3 2024",
+    hasVoted: true,
   },
   {
     id: "10",
@@ -160,6 +162,7 @@ const initialRoadmapItems: RoadmapItem[] = [
     votes: 67,
     comments: 15,
     quarter: "Q2 2024",
+    hasVoted: false,
   },
 
   // IN_PROGRESS
