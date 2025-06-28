@@ -299,7 +299,7 @@ const Ideas: NextPage = () => {
                         <HStack spacing={4} color="gray.500" fontSize="sm">
                           <Text>by {idea.author.name}</Text>
                           <Text>•</Text>
-                          <Text>
+                          <Text suppressHydrationWarning>
                             {new Date(idea.createdAt).toLocaleDateString()}
                           </Text>
                         </HStack>
