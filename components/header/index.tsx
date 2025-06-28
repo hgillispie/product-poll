@@ -33,22 +33,18 @@ const Header = () => {
         {/* Builder.io Logo */}
         <Link href="/">
           <HStack cursor="pointer" spacing={3}>
-            <Box
-              bg="brand.500"
-              color="white"
-              px={3}
-              py={2}
+            <Image
+              src="https://cdn.builder.io/api/v1/image/assets%2F24272629d2bd4d1a8956cce15af1b3dc%2F3eea6d7844d747569446ee85b9577557?format=webp&width=800"
+              alt="Builder.io Logo"
+              height="40px"
+              width="40px"
               borderRadius="lg"
-              fontWeight="bold"
-            >
-              B
-            </Box>
+            />
             <Heading size="md" color="gray.900">
               Builder Feedback
             </Heading>
           </HStack>
         </Link>
-
         <Spacer />
 
         {/* Navigation */}
