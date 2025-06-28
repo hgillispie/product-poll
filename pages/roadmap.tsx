@@ -465,6 +465,14 @@ const RoadmapColumn = ({
 };
 
 const Roadmap: NextPage = () => {
+  const [roadmapItems, setRoadmapItems] =
+    useState<RoadmapItem[]>(initialRoadmapItems);
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+  const [newComment, setNewComment] = useState("");
+  const [isSubmittingComment, setIsSubmittingComment] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+
   const backlogItems = roadmapItems.filter((item) => item.status === "BACKLOG");
   const underReviewItems = roadmapItems.filter(
     (item) => item.status === "UNDER_REVIEW",
@@ -476,6 +484,116 @@ const Roadmap: NextPage = () => {
   const completedItems = roadmapItems.filter(
     (item) => item.status === "COMPLETED",
   );
+
+  const handleVote = async (itemId: string) => {
+    try {
+      const response = await fetch("/api/votes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ideaId: itemId,
+          userId: "user1", // Mock user ID
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to vote");
+      }
+
+      const result = await response.json();
+
+      // Update local state
+      setRoadmapItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === itemId
+            ? {
+                ...item,
+                votes: result.data.votes,
+                hasVoted: result.data.hasVoted,
+              }
+            : item,
+        ),
+      );
+
+      toast({
+        title: result.data.hasVoted ? "Vote added!" : "Vote removed!",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+    } catch (error) {
+      console.error("Error voting:", error);
+      toast({
+        title: "Failed to vote",
+        description: "Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+
+  const handleComment = (itemId: string) => {
+    setSelectedItemId(itemId);
+    onOpen();
+  };
+
+  const handleSubmitComment = async () => {
+    if (!selectedItemId || !newComment.trim()) return;
+
+    setIsSubmittingComment(true);
+    try {
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          content: newComment.trim(),
+          ideaId: selectedItemId,
+          userId: "user1", // Mock user ID
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add comment");
+      }
+
+      // Update comment count in local state
+      setRoadmapItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === selectedItemId
+            ? { ...item, comments: item.comments + 1 }
+            : item,
+        ),
+      );
+
+      toast({
+        title: "Comment added!",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+
+      setNewComment("");
+      onClose();
+    } catch (error) {
+      console.error("Error adding comment:", error);
+      toast({
+        title: "Failed to add comment",
+        description: "Please try again later.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    } finally {
+      setIsSubmittingComment(false);
+    }
+  };
+
+  const selectedItem = roadmapItems.find((item) => item.id === selectedItemId);
 
   return (
     <Box minH="100vh" bg="gray.50">
