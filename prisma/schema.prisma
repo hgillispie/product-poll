@@ -17,10 +17,11 @@ model User {
   avatar    String?
   createdAt DateTime @default(now())
 
-  ideas      Idea[]
-  votes      Vote[]
-  comments   Comment[]
-  activities UserActivity[]
+  ideas         Idea[]
+  votes         Vote[]
+  comments      Comment[]
+  activities    UserActivity[]
+  webhookConfigs WebhookConfig[]
 }
 
 model Idea {
