@@ -78,6 +78,23 @@ model UserActivity {
   @@map("user_activities")
 }
 
+model WebhookConfig {
+  id          String   @id @default(cuid()) @map("_id")
+  userId      String   @db.ObjectId
+  service     String   // slack, discord, zapier
+  webhookUrl  String
+  secretToken String?
+  isActive    Boolean  @default(true)
+  events      String[] // array of event types to trigger on
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user        User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, service])
+  @@map("webhook_configs")
+}
+
 enum Status {
   SUBMITTED
   PLANNED
